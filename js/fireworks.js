@@ -13,8 +13,8 @@
   var rockets = [];   // поднимающиеся ракеты
   var sparks = [];    // осколки взрыва
   var colors = [
-    "#ffd36b", "#ff9d5c", "#ff6b6b", "#e08aff",
-    "#8ee06a", "#6bd6ff", "#fff6d8", "#ff8fb0"
+    "#ffd36b", "#F1E5AC", "#EEBC1D", "#FFD700",
+  //  "#8ee06a", "#6bd6ff", "#fff6d8", "#ff8fb0"
   ];
 
   function resize() {
