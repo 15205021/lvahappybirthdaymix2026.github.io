@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Юбилей 45</title>
+
+  <meta name="description" content="Приглашение на юбилей. Ждём вас 17 октября 2026, ресторанно-гостиничный комплекс «София», г. Урень.">
+  <meta name="theme-color" content="#f6efe2">
+
+  <!-- Open Graph / Telegram / WhatsApp -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Юбилей 45 · 17 октября 2026">
+  <meta property="og:description" content="С огромным удовольствием приглашаю вас на празднование моего 45-летия.">
+  <meta property="og:image" content="og-cover.svg">
+  <meta property="og:locale" content="ru_RU">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Elegant serif (Cormorant) + clean sans (Manrope), both with Cyrillic -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Manrope:wght@300;400;500;600;700&display=swap">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Помощник, который не даёт странице отпрыгивать в перфекте -->
+  <div class="bg-atmosphere" aria-hidden="true"></div>
+
+  <!-- ===== ЭКРАН КОНВЕРТА ===== -->
+  <div id="envelope-screen" class="envelope-screen" aria-hidden="true">
+    <div class="envelope-wrap">
+      <div class="env-top-caption">У вас новое приглашение</div>
+
+      <div id="envelope" class="envelope" role="button" tabindex="0" aria-label="Открыть приглашение">
+        <!-- Клапан -->
+        <div class="env-flap"><div class="env-flap-tip"></div></div>
+        <!-- Передний карман -->
+        <div class="env-body">
+          <div class="env-body-label">
+            <span class="env-body-name">Приглашение на юбилей</span>
+            <span class="env-body-age">45</span>
+          </div>
+        </div>
+        <!-- Сургучная печать -->
+        <div class="env-seal"><span class="env-seal-num">45</span></div>
+      </div>
+
+      <div class="env-bottom-caption">Нажмите, чтобы открыть</div>
+
+      <button id="env-open-btn" class="env-open-btn" type="button" tabindex="0">
+        Открыть приглашение
+      </button>
+    </div>
+  </div>
+
+  <!-- ===== ОСНОВНАЯ СТРАНИЦА ===== -->
+  <main id="page" class="page" aria-hidden="true">
+
+    <!-- HERO -->
+    <section id="hero" class="hero">
+      <div class="hero-photo">
+        <img id="hero-photo-img" alt="Фотография именинницы" loading="eager">
+      </div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <p class="hero-eyebrow">Юбилей</p>
+        <h1 class="hero-age">45</h1>
+        <p class="hero-date" id="hero-date-text">17&nbsp;октября&nbsp;2026</p>
+        <p class="hero-sub">Буду рада разделить этот день с вами</p>
+      </div>
+      <div class="hero-scroll">
+        <span>Листайте вниз</span>
+        <span class="hero-arrow">↓</span>
+      </div>
+    </section>
+
+    <!-- ПРИГЛАШЕНИЕ -->
+    <section id="invitation" class="section section-invite">
+      <div class="container narrow">
+        <h2 class="sec-title">Дорогие друзья и родные!</h2>
+        <p class="invite-text">
+          День рождения — отличный повод собраться вместе, а уж юбилей — тем более!
+          С огромным удовольствием приглашаю вас и буду очень рада увидеть,
+          крепко обнять и вместе с вами насладиться душевной атмосферой праздника
+          в честь моего 45-летия!
+        </p>
+        <div class="invite-cta">
+          <span class="invite-cta-line">Жду Вас</span>
+          <span class="invite-cta-date">17&nbsp;октября&nbsp;2026<span class="invite-cta-g">г</span></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- МЕСТО -->
+    <section id="venue" class="section section-venue">
+      <div class="container">
+        <h2 class="sec-title">Место встречи</h2>
+        <div class="venue-card">
+          <h3 class="venue-name" id="venue-name" tabindex="0">Ресторано-гостиничный комплекс «София»</h3>
+          <a class="venue-addr" id="venue-addr" href="#" target="_blank" rel="noopener">
+            <span>Нижегородская область,</span>
+            <span>г. Урень, ул. Механизаторов, д. 33</span>
+          </a>
+          <a class="btn btn-route" id="map-route-btn" href="#" target="_blank" rel="noopener">
+            Построить маршрут
+          </a>
+        </div>
+
+        <div id="map" class="map" aria-label="Карта проезда"></div>
+
+        <div class="map-links">
+          <a class="btn btn-ghost" id="map-yandex" href="#" target="_blank" rel="noopener">Яндекс Карты</a>
+          <a class="btn btn-ghost" id="map-google" href="#" target="_blank" rel="noopener">Google Maps</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ПРОГРАММА -->
+    <section id="program" class="section section-program">
+      <div class="container">
+        <h2 class="sec-title">Программа дня</h2>
+        <ol class="timeline" id="timeline"></ol>
+      </div>
+    </section>
+
+    <!-- ОБРАТНЫЙ ОТСЧЁТ -->
+    <section id="countdown" class="section section-countdown">
+      <div class="container">
+        <h2 class="sec-title" id="cd-title">До юбилея осталось</h2>
+        <div class="cd-wrap">
+          <div class="cd-unit"><span class="cd-num" id="cd-days">00</span><span class="cd-label">ДНИ</span></div>
+          <div class="cd-sep">:</div>
+          <div class="cd-unit"><span class="cd-num" id="cd-hours">00</span><span class="cd-label">ЧАСЫ</span></div>
+          <div class="cd-sep">:</div>
+          <div class="cd-unit"><span class="cd-num" id="cd-mins">00</span><span class="cd-label">МИН</span></div>
+          <div class="cd-sep">:</div>
+          <div class="cd-unit"><span class="cd-num" id="cd-secs">00</span><span class="cd-label">СЕК</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- АНКЕТА ГOСТЯ -->
+    <section id="rsvp" class="section section-rsvp">
+      <div class="container narrow">
+        <h2 class="sec-title">Анкета гостя</h2>
+        <p class="rsvp-prompt">До 13 октября подтвердите, пожалуйста, свое присутствие на юбилее в анкете ниже</p>
+
+        <form id="rsvp-form" class="rsvp-form" novalidate>
+          <!-- Имя -->
+          <label class="field">
+            <span class="field-label">Твое легендарное имя <em>(можно сценический псевдоним)</em></span>
+            <input type="text" id="guest-name" name="guest-name" class="field-input"
+                   placeholder="Например, Королева бала" autocomplete="name">
+            <span class="field-error" data-error-for="guest-name"></span>
+          </label>
+
+          <!-- Приду / не приду -->
+          <fieldset class="rsvp-group">
+            <legend class="rsvp-legend-sr">Я приду и устрою</legend>
+            <div id="party-options" class="opt-grid opt-grid-single"></div>
+          </fieldset>
+
+          <!-- Напиток -->
+          <div class="rsvp-block">
+            <h3 class="rsvp-sub">Твой боевой напиток:</h3>
+            <div id="drink-options" class="opt-grid"></div>
+          </div>
+
+          <!-- Еда -->
+          <div class="rsvp-block">
+            <h3 class="rsvp-sub">Предпочтения в еде:</h3>
+            <div id="food-options" class="opt-grid"></div>
+          </div>
+
+          <button type="submit" id="rsvp-submit" class="btn btn-gold btn-submit">Подтвердить участие</button>
+          <p class="form-error form-error-global" id="form-error-global"></p>
+        </form>
+      </div>
+    </section>
+
+    <!-- ФИНАЛ -->
+    <section id="closing" class="section section-closing">
+      <div class="container center">
+        <h2 class="closing-age">45</h2>
+        <p class="closing-text">До встречи 17 октября!</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== МОБИЛЬНАЯ НИЖНЯЯ НАВИГАЦИЯ ===== -->
+  <nav id="mnav" class="mnav" aria-label="Навигация">
+    <button class="mnav-item" data-nav="invitation" aria-label="Приглашение">
+      <span class="mnav-ico">⌂</span><span>Приглашение</span>
+    </button>
+    <button class="mnav-item" data-nav="program" aria-label="Программа">
+      <span class="mnav-ico">◷</span><span>Программа</span>
+    </button>
+    <button class="mnav-item" data-nav="venue" aria-label="Место">
+      <span class="mnav-ico">⌖</span><span>Место</span>
+    </button>
+    <button class="mnav-item" data-nav="rsvp" aria-label="Анкета">
+      <span class="mnav-ico">✓</span><span>Анкета</span>
+    </button>
+  </nav>
+
+  <!-- ===== ПЛАВАЮЩАЯ КНОПКА АНКЕТЫ ===== -->
+  <button id="floating-rsvp" class="floating-rsvp" type="button">Ответить на приглашение</button>
+
+  <!-- ===== МОДАЛКА УСПЕХА ===== -->
+  <div id="success-modal" class="modal" aria-hidden="true">
+    <div class="modal-box">
+      <div class="modal-check">✓</div>
+      <h3 class="modal-title" id="modal-title"></h3>
+      <p class="modal-text" id="modal-text"></p>
+      <button class="btn btn-gold" id="modal-close" type="button">Отлично</button>
+    </div>
+  </div>
+
+  <!-- ===== ДЕСКТОПНАЯ ВЕРХНЯЯ НАВИГАЦИЯ ===== -->
+  <header id="dnav" class="dnav">
+    <a class="dnav-brand" href="#hero"><span class="dnav-45">45</span><span>Юбилей</span></a>
+    <nav class="dnav-links" aria-label="Основная навигация">
+      <a href="#invitation">Приглашение</a>
+      <a href="#program">Программа</a>
+      <a href="#venue">Место</a>
+      <a href="#rsvp">Анкета</a>
+    </nav>
+  </header>
+
+  <!-- Классические скрипты: так проект работает даже при открытии index.html
+       напрямую с диска (file://), где браузеры блокируют ES-модули. -->
+  <script src="js/config.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
