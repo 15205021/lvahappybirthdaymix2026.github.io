@@ -29,6 +29,7 @@
 <body>
   <!-- Помощник, который не даёт странице отпрыгивать в перфекте -->
   <div class="bg-atmosphere" aria-hidden="true"></div>
+  <canvas id="fireworks" class="fireworks-canvas" aria-hidden="true"></canvas>
 
   <!-- ===== ЭКРАН КОНВЕРТА ===== -->
   <div id="envelope-screen" class="envelope-screen" aria-hidden="true">
@@ -240,6 +241,7 @@
   <!-- Классические скрипты: так проект работает даже при открытии index.html
        напрямую с диска (file://), где браузеры блокируют ES-модули. -->
   <script src="js/config.js"></script>
+  <script src="js/fireworks.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>
