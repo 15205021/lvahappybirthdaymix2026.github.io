@@ -394,6 +394,26 @@ section{position:relative}
 .floating-rsvp.is-hide{opacity:0;transform:translateX(-50%) translateY(12px);pointer-events:none}
 @keyframes floaty{0%{transform:translateX(-50%) translateY(24px);opacity:0}100%{transform:translateX(-50%) translateY(0);opacity:1}}
 
+/* кнопка музыки */
+.music-btn{
+  position:fixed;top:calc(var(--sa-top,0px) + 14px);right:14px;z-index:80;
+  width:46px;height:46px;border-radius:50%;cursor:pointer;border:none;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(250,246,237,.9);color:var(--gold-deep);
+  box-shadow:0 8px 22px -10px rgba(20,14,4,.45),inset 0 0 0 1px var(--gold-line);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  font-size:22px;transition:transform .2s ease,background .2s ease,color .2s ease;
+}
+.music-btn:hover{transform:translateY(-2px)}
+.music-btn:focus-visible{outline:3px solid var(--gold-soft);outline-offset:2px}
+.music-btn .music-ico{transition:transform .3s ease}
+.music-btn.is-on{background:var(--graphite);color:#fff}
+.music-btn.is-on .music-ico{animation:spin 3s linear infinite}
+@keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+@media (min-width:601px){
+  .music-btn{top:calc(var(--sa-top,0px) + 74px)}
+}
+
 /* мобильная нижняя навигация */
 .mnav{
   position:fixed;left:0;right:0;bottom:0;z-index:70;

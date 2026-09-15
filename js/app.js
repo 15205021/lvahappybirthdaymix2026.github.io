@@ -69,6 +69,8 @@ function finishOpen() {
 function openEnvelope() {
   if (openedInSession) return;
   openedInSession = true;
+  // пользователь уже кликнул — пробуем тихо включить музыку
+  setTimeout(() => music.start(), 150);
   try { localStorage.setItem(CFG.storageKey, "1"); } catch (e) {}
 
   if (reducedMotion) {
@@ -469,11 +471,57 @@ function setupConfetti() {
 }
 
 // -------------------------------------------------------------
+//  9.1 ФОНОВАЯ МУЗЫКА (YouTube)
+// -------------------------------------------------------------
+const music = {
+  url: CFG.musicUrl,
+  audio: null,
+  started: false,
+  on: false,
+  btn: $("#music-btn"),
+
+  load() {
+    this.btn?.addEventListener("click", () => this.toggle());
+    if (!this.url) { this.btn?.remove(); return; }
+    this.audio = new Audio(this.url);
+    this.audio.loop = true;
+    this.audio.preload = "auto";
+    this.audio.addEventListener("canplaythrough", () => this.btn?.classList.add("is-ready"));
+    this.audio.addEventListener("ended", () => { this.on = false; this.sync(); });
+  },
+
+  start() {
+    if (!this.audio || this.started) return;
+    this.started = true;
+    this.toggle();
+  },
+
+  toggle() {
+    if (!this.audio) return;
+    if (this.audio.paused) {
+      const p = this.audio.play();
+      if (p && p.catch) p.catch(() => { this.on = false; this.sync(); });
+      this.on = true;
+    } else {
+      this.audio.pause();
+      this.on = false;
+    }
+    this.sync();
+  },
+
+  sync() {
+    this.btn?.classList.toggle("is-on", this.on);
+    this.btn?.setAttribute("aria-pressed", String(this.on));
+  },
+};
+
+// -------------------------------------------------------------
 //  STARТ
 // -------------------------------------------------------------
 document.addEventListener("DOMContentLoaded", () => {
   hydrate();
   bindEnvelope();
+  music.load();
   startup();
 });
 
