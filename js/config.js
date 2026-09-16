@@ -14,17 +14,17 @@ window.CONFIG = {
   eventDateLabel: "17 октября 2026",
   venueName: "Ресторано-гостиничный комплекс «София»",
   addressLines: [
-    "Нижегородская область,",
-    "г. Урень, ул. Механизаторов, д. 33"
+    "Екатеринбург,",
+    "ул. Гагарина, д. 27, кв. 6."
   ],
 
   // --- Гео: фирменные ссылки откроются в приложениях / вебе ---
   coords: { lat: 57.4619, lng: 45.7827 }, // приблизительные координаты Уреня
-  yandexMapsUrl: "https://yandex.ru/maps/?rtext=~57.4619,45.7827&rtt=auto",
-  googleMapsUrl: "https://www.google.com/maps/dir/?api=1&destination=57.4619,45.7827",
+  yandexMapsUrl: "https://yandex.ru/maps/?rtext=~56.846120,60.644816&rtt=auto",
+  googleMapsUrl: "https://2gis.ru/ekaterinburg/geo/1267273050403795?m=60.520492%2C56.694965%2F16",
   // При указании точного адреса карту можно построить по поисковому запросу:
-  // yandexMapsUrl: "https://yandex.ru/maps/?text=Нижегородская+область,+Урень,+ул.+Механизаторов,+33"
-  // googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent("Урень, Механизаторов 33")
+  // yandexMapsUrl: "https://yandex.ru/maps/?text=Екатеринбург,+ул.+Механизаторов"
+  // googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent("Екатеринбург,ул.+Механизаторов")
 
   // --- Фотография героини ---
   // Замените на URL или относительный путь до реального фото:
